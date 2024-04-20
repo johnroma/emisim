@@ -39,9 +39,13 @@ import { Image } from "astro:assets"
       alt="The world lost its colors"
       width="1266"
       height="585"
-      class="hero h-svh object-cover min-w-screen overflow-hidden"
+      class="hero h-svh object-cover min-w-screen overflow-hidden object-center"
     />
-
+    <audio
+      class="w-full absolute bottom-0 mb-10 z-20 p-10"
+      controls
+      src={`/test1.mp3`}
+    ></audio>
     <canvas
       id="dotcanvas"
       class="absolute w-full h-full"
