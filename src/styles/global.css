@@ -3,13 +3,28 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "InputSans";
-  src: url("/fonts/input_sans_bold.woff2") format("woff2");
+  font-family: "Playfair";
+  src: url("/fonts/playfair_display-semi_bold_italic.ttf") format("ttf");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat-medium.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat-regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 @layer base {
   :root {
     --checkboard-size: 4px;
@@ -70,6 +85,15 @@
   }
   section p:last-child {
     margin-bottom: 0;
+  }
+
+  canvas {
+    position: fixed;
+    inset: 0;
+  }
+
+  .hero {
+    filter: saturate(0) brightness(0.5);
   }
 }
 

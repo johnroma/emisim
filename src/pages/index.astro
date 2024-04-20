@@ -18,20 +18,30 @@ import "../styles/global.css"
       name="generator"
       content={Astro.generator}
     />
-    <title>Emisim - Queen of Colors</title>
+    <title>Emisim - The Color Fairy</title>
   </head>
   <body class="bg-blue-200">
-    <div
-      class="flex w-full h-svh bg-green-400 absolute justify-center items-center"
-    >
-      <h1 class="text-3xl text-center font-bold text-white">
-        Emisim - Queen of Colors
-      </h1>
+    <div class="flex w-full h-svh absolute justify-center items-center z-10">
+      <section class="p-10 text-center text-white leading-relaxed">
+        <!-- <h1 class="text-3xl font-bold mb-4">Emisim - The Color Fairy</h1> -->
+        <p class="font-serif text-3xl font-bold">
+          A year since the world started loosing colors...
+        </p>
+        <p class="font-sans">Let's bring them back with your magic touch.</p>
+      </section>
     </div>
 
-    <canvas class="absolute w-full h-full border"></canvas>
+    <img
+      src="https://picsum.photos/1920/1080"
+      alt="abstract art image"
+      class="hero min-h-svh object-cover w-auto"
+    />
+    <canvas
+      id="dotcanvas"
+      class="absolute w-full h-full"
+    ></canvas>
   </body>
   <script>
-    import "../scripts/index.ts"
+    import "../scripts/dotscanvas.ts"
   </script>
 </html>

@@ -4,7 +4,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["InputSans", "ui-monospace", "system-ui", "sans-serif"],
+        sans: ["Montserrat", "ui-monospace", "system-ui", "sans-serif"],
+        serif: ["Playfair", "ui-serif", "Georgia", "serif"],
+      },
+      lineHeight: {
+        "extra-loose": "2.5",
       },
     },
   },
