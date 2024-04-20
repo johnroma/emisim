@@ -1,8 +1,12 @@
 ---
 import "../styles/global.css"
+import { Image } from "astro:assets"
 ---
 
-<html lang="en">
+<html
+  lang="en"
+  class="bg"
+>
   <head>
     <meta charset="utf-8" />
     <link
@@ -20,22 +24,24 @@ import "../styles/global.css"
     />
     <title>Emisim - The Color Fairy</title>
   </head>
-  <body class="bg-blue-200">
+  <body>
     <div class="flex w-full h-svh absolute justify-center items-center z-10">
-      <section class="p-10 text-center text-white leading-relaxed">
+      <section class="p-8 text-center text-white leading-relaxed shady">
         <!-- <h1 class="text-3xl font-bold mb-4">Emisim - The Color Fairy</h1> -->
         <p class="font-serif text-3xl font-bold">
-          A year since the world started loosing colors...
+          A year since the world lost its colors...
         </p>
         <p class="font-sans">Let's bring them back with your magic touch.</p>
       </section>
     </div>
-
-    <img
-      src="https://picsum.photos/1920/1080"
-      alt="abstract art image"
-      class="hero min-h-svh object-cover w-auto"
+    <Image
+      src="https://source.unsplash.com/random/585x1266/?sweden"
+      alt="The world lost its colors"
+      width="1266"
+      height="585"
+      class="hero h-svh object-cover min-w-screen overflow-hidden"
     />
+
     <canvas
       id="dotcanvas"
       class="absolute w-full h-full"
@@ -43,5 +49,6 @@ import "../styles/global.css"
   </body>
   <script>
     import "../scripts/dotscanvas.ts"
+    import "../scripts/colorize.ts"
   </script>
 </html>

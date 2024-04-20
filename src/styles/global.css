@@ -27,6 +27,7 @@
 }
 @layer base {
   :root {
+    --pastel: #ff99cc;
     --checkboard-size: 4px;
     --checkboard-light: #777;
     --checkboard-dark: #ddd;
@@ -47,17 +48,8 @@
 
     --grey1: #121212;
 
-    /* named colors */
-    --neoblue: #0003ff;
-    --neoyellow: #ffdc00;
-    --stratos: #000051;
-    --aquamarine: #75fbfd;
-    --neogreen: #2fff2f;
-
-    --swiper-pagination-bullet-inactive-opacity: 0.1;
-    --swiper-pagination-bullet-inactive-color: black;
-    --swiper-pagination-color: var(--neoyellow);
-    --swiper-pagination-bullet-size: 1rem;
+    --colorjoy: 0;
+    --brighten: 0.5;
   }
 
   html {
@@ -66,6 +58,7 @@
     overflow-y: auto;
     overscroll-behavior-y: none;
     scroll-behavior: smooth;
+    background-color: var(--pastel);
   }
   h1,
   h2,
@@ -91,11 +84,13 @@
     position: fixed;
     inset: 0;
   }
-
-  .hero {
-    filter: saturate(0) brightness(0.5);
-  }
 }
 
 @layer components {
+  .shady {
+    text-shadow: 3px 3px 20px var(--pastel), -2px 1px 30px var(--pastel);
+  }
+  .hero {
+    filter: saturate(var(--colorjoy)) brightness(var(--brighten));
+  }
 }
