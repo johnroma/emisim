@@ -12,8 +12,6 @@
 
 @layer base {
   :root {
-    --copyright: 1900;
-    --nokiaframe: "";
     --checkboard-size: 4px;
     --checkboard-light: #777;
     --checkboard-dark: #ddd;
