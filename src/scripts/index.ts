@@ -1,7 +1,7 @@
-const canvas = document.querySelector("canvas")
+const canvas = document.querySelector("canvas") as HTMLCanvasElement
 canvas.height = window.innerHeight
 canvas.width = window.innerWidth
-const c = canvas.getContext("2d")
+const c = canvas.getContext("2d")!
 
 window.addEventListener("resize", () => {
   canvas.height = window.innerHeight
@@ -10,18 +10,23 @@ window.addEventListener("resize", () => {
   initCanvas()
 })
 
-const mouse = {
+interface MousePosition {
+  x: number | undefined
+  y: number | undefined
+}
+
+const mouse: MousePosition = {
   x: undefined,
   y: undefined,
 }
 
-window.addEventListener("mousemove", (event) => {
+window.addEventListener("mousemove", (event: MouseEvent) => {
   mouse.x = event.x
   mouse.y = event.y
   drawCircles()
 })
 
-window.addEventListener("touchmove", (event) => {
+window.addEventListener("touchmove", (event: TouchEvent) => {
   const touch = event.touches[0]
   mouse.x = touch.clientX
   mouse.y = touch.clientY
@@ -29,7 +34,30 @@ window.addEventListener("touchmove", (event) => {
 })
 
 class Circle {
-  constructor(x, y, radius, vx, vy, rgb, opacity, birth, life) {
+  x: number
+  y: number
+  radius: number
+
+  //
+  minRadius: number
+  vx: number
+  vy: number
+  birth: number
+  life: number
+  opacity: number
+  rgb: string
+
+  constructor(
+    x: number,
+    y: number,
+    radius: number,
+    vx: number,
+    vy: number,
+    rgb: string,
+    opacity: number,
+    birth: number,
+    life: number
+  ) {
     this.x = x
     this.y = y
     this.radius = radius
@@ -42,14 +70,14 @@ class Circle {
     this.rgb = rgb
   }
 
-  draw() {
+  draw(): void {
     c.beginPath()
-    c.arc(this.x, this.y, this.radius, Math.PI * 2, false)
+    c.arc(this.x, this.y, this.radius, Math.PI * 2, 0)
     c.fillStyle = `rgba(${this.rgb},${this.opacity})`
     c.fill()
   }
 
-  update() {
+  update(): void {
     if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
       this.vx = -this.vx
     }
@@ -76,13 +104,13 @@ class Circle {
   }
 }
 
-let circleArray = []
+let circleArray: Circle[] = []
 
-function initCanvas() {
+function initCanvas(): void {
   circleArray = []
 }
 
-const colorArray = [
+const colorArray: string[] = [
   "29, 145, 252",
   "223, 9, 3",
   "90, 54, 192",
@@ -91,7 +119,7 @@ const colorArray = [
   "112, 174, 210",
 ]
 
-function drawCircles() {
+function drawCircles(): void {
   for (let i = 0; i < 6; i++) {
     const radius = Math.floor(Math.random() * 4) + 2
     const vx = Math.random() * 2 - 1
@@ -100,13 +128,13 @@ function drawCircles() {
     const rgb = colorArray[Math.floor(Math.random() * colorArray.length)]
     const life = 100
     circleArray.push(
-      new Circle(mouse.x, mouse.y, radius, vx, vy, rgb, 1, spawnFrame, life)
+      new Circle(mouse.x!, mouse.y!, radius, vx, vy, rgb, 1, spawnFrame, life)
     )
   }
 }
 
 let frame = 0
-function animate() {
+function animate(): void {
   requestAnimationFrame(animate)
   frame += 1
   c.clearRect(0, 0, innerWidth, innerHeight)
