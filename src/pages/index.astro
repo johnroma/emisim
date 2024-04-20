@@ -1,0 +1,35 @@
+---
+import "../styles/global.css"
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+    <title>Emisim - Queen of Colors</title>
+  </head>
+  <body class="bg-blue-200">
+    <div
+      class="flex w-full h-svh bg-green-400 absolute justify-center items-center"
+    >
+      <h1 class="text-4xl text-center">Emisim - Queen of Colors</h1>
+    </div>
+
+    <canvas class="absolute w-full h-full border"></canvas>
+  </body>
+  <script>
+    import "../scripts/index.ts"
+  </script>
+</html>

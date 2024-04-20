@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "InputSans";
+  src: url("/fonts/input_sans_bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --copyright: 1900;
+    --nokiaframe: "";
+    --checkboard-size: 4px;
+    --checkboard-light: #777;
+    --checkboard-dark: #ddd;
+    --background: black;
+    --foreground: #2fff2f;
+    --background-light-mode: rgb(226 232 240);
+
+    --accent: #ff00f5;
+
+    --hero-scroll-track: 0;
+    --hero-scroll-track-rev: 1;
+    --snapping-strictness: "none";
+    --scroll-position: 0;
+
+    --nav-scroll-top: -48px;
+    --nav-content-scroll-top: 0px;
+    --nav-content-background: #fff;
+
+    --grey1: #121212;
+
+    /* named colors */
+    --neoblue: #0003ff;
+    --neoyellow: #ffdc00;
+    --stratos: #000051;
+    --aquamarine: #75fbfd;
+    --neogreen: #2fff2f;
+
+    --swiper-pagination-bullet-inactive-opacity: 0.1;
+    --swiper-pagination-bullet-inactive-color: black;
+    --swiper-pagination-color: var(--neoyellow);
+    --swiper-pagination-bullet-size: 1rem;
+  }
+
+  html {
+    scroll-snap-type: "none";
+
+    overflow-y: auto;
+    overscroll-behavior-y: none;
+    scroll-behavior: smooth;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+  section:has(:is(h1, h2, h3, h4, h5, h6) + p) :is(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 0.75rlh;
+  }
+
+  section:has(p + p) p {
+    margin-bottom: 0.25rlh;
+  }
+  section p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@layer components {
+}
