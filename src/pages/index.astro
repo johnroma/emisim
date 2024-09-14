@@ -26,33 +26,18 @@ import { Image } from "astro:assets"
   </head>
   <body>
     <div class="flex w-full h-svh absolute justify-center items-center z-10">
-      <section class="p-8 text-center text-white leading-relaxed shady">
-        <!-- <h1 class="text-3xl font-bold mb-4">Emisim - The Color Fairy</h1> -->
-        <p class="font-serif text-3xl font-semibold">
-          A year since the world lost its colors...
+      <section class="p-8 text-center text-black leading-relaxed shady">
+        <h2 class="text-xl">R.I.P.</h2>
+        <p>
+          Here lied a pathetical attempt to reason with a Narcissist, by a
+          hopeless Romantic who didn't get it even after 4 sever stabs at his
+          heart.
         </p>
-        <p class="font-sans">Let's bring them back with your magic touch.</p>
+        <p>2021-2024 💔</p>
       </section>
     </div>
-    <Image
-      src="https://source.unsplash.com/random/585x1266/?sweden"
-      alt="The world lost its colors"
-      width="1266"
-      height="585"
-      class="hero h-svh object-cover min-w-screen overflow-hidden object-center"
-    />
-    <audio
-      class="w-full absolute bottom-0 mb-10 z-20 p-10"
-      controls
-      src={`/elevenlabs.mp3`}
-    ></audio>
-    <canvas
-      id="dotcanvas"
-      class="absolute w-full h-full"
-    ></canvas>
   </body>
   <script>
-    import "../scripts/dotscanvas.ts"
     import "../scripts/colorize.ts"
   </script>
 </html>
